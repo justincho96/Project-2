@@ -1,4 +1,4 @@
-#Workout Planner
+# Workout Planner
 
 - Planning your workout made simple and easy! Don't stress over planning a new workout every time. Instead just create a profile and save your workouts for easy readily available access to your workouts anytime!
 
@@ -9,6 +9,10 @@
 ![List Page](img/List%20page.jpg)
 
 ![ERD](img/ERD.jpg)
+
+# Getting Started
+Trello:
+https://trello.com/b/2aUFyfVG/project-2
 
 ## Pseudocode
 ```
