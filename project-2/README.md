@@ -8,6 +8,8 @@
 
 ![List Page](img/List%20page.jpg)
 
+![ERD](img/ERD.jpg)
+
 ## Pseudocode
 ```
 - set routes
