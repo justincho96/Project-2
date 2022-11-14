@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function newWorkout(req, res) {
-    res.render('workouts/new');
+    res.render('workouts/new', { title: 'New Workout'});
 }
 
 function create (req, res) {
@@ -27,9 +27,9 @@ function index(req, res) {
     Workout.find({}, function(err, workouts) {
       if (err) {
         console.log(err);
-        res.redirect("/");
+        res.redirect('/');
       } 
-        res.render("workouts/index", { workouts });
+        res.render("workouts/index", { title: 'My Workouts', workouts });
     });
 }
 
