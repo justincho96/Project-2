@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>My Workouts</title>
+</head>
+<body>
+  <h1>Workout</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Repitions</th>
+        <th>Complete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% workouts.forEach(w=> { %>
+        <tr>
+            <td><%= w.Exercise %></td>
+            <td><%= w.Reps %></td>
+            <td><%= w.complete ? 'Yes' : 'No' %></td>
+            </tr>
+            <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>

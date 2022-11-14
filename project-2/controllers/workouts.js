@@ -12,15 +12,23 @@ function newWorkout(req, res) {
 }
 
 function create (req, res) {
-
+req.body.complete = !!req.body.complete;
+  if (req.body.exercise) req.body.exercise = req.body.exercise.split(/\s*,\s*/);
+    const workout = new Workout(req.body);
+   workout.save(function(err) {
+    if (err) return res.redirect('/workouts/new');
+    console.log(workout);
+    res.redirect('/workouts');
+  });
 }
 
 function index(req, res) {
-    Workout.find({}, function(err, movies) {
+    Workout.find({}, function(err, workouts) {
       if (err) {
+        console.log(err);
         res.redirect("/");
       } 
-        res.render("workouts/index", { workouts});
+        res.render("workouts/index", { workouts });
     });
 }
 

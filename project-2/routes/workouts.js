@@ -8,6 +8,6 @@ router.get('/new', workoutsCtrl.new);
 //post
 router.post('/', workoutsCtrl.create);
 
-router.get("/", workoutsCtrl.index);
+router.get('/', workoutsCtrl.index);
 
 module.exports = router;
