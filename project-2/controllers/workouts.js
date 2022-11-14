@@ -14,6 +14,7 @@ function newWorkout(req, res) {
 function create (req, res) {
 req.body.complete = !!req.body.complete;
   if (req.body.exercise) req.body.exercise = req.body.exercise.split(/\s*,\s*/);
+  console.log(req.body);
     const workout = new Workout(req.body);
    workout.save(function(err) {
     if (err) return res.redirect('/workouts/new');
