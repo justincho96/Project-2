@@ -6,19 +6,23 @@
   <table>
     <thead>
       <tr>
-        <th>Exercise</th>
-        <th>Repitions</th>
-        <th>Complete</th>
+        <th>Workout Name</th>
+        <th>Description</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <% workouts.forEach(w=> { %>
         <tr>
-            <td><%= w.Exercise %></td>
-            <td><%= w.Reps %></td>
-            <td><%= w.complete ? 'Yes' : 'No' %></td>
-            </tr>
-            <% }) %>
+            <td><%= w.workoutName %></td>
+            <td><%= w.description %></td>
+            <td action="/workouts/<%= w.id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">Delete</button>
+            </td>
+            <td><a href="/workouts/<%= w._id %>">View/Edit</a></td>
+        </tr>                        
+    <% }) %>       
     </tbody>
   </table>
 

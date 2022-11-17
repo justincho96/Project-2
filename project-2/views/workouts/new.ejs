@@ -2,25 +2,22 @@
 <title>New Workout</title>
 </head>
 <body>
-    <h2>Enter a New Exercise</h2>
+    <h2>Enter a New Workout</h2>
 <form action="/workouts" method="POST">
   <label>Exercise:
-    <input type="text" name="Exercise">
+    <input type="text" name="workoutName">
   </label>
-  <label>Repitions
-    <select name="Reps">
-      <option value="1">1</option>
-      <option value="3">3</option>
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="25">25</option>
-      <option value="50">50</option>
-      <option value="100">100</option>
+  <label>Description:
+    <select name="description">
+      <option value="Legs">Legs</option>
+      <option value="Arms">Arms</option>
+      <option value="Chest">Chest</option>
+      <option value="Lower-Body">Lower-Body</option>
+      <option value="Upper-Body">Upper-Body</option>
+      <option value="Lite">Lite</option>
+      <option value="Warm-Up">Warm-Up</option>
     </select>
   </label>
-  <label>Complete:
-    <input type="checkbox" name="complete" checked>
-  </label><br>
   <input type="submit" value="Add Exercise">
 </form>
 

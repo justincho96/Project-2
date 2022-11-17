@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+<section id="My Workouts">
+  <div>Title: </div>
+  <div><%= workout.workoutName %></div>
+  <div>Description: </div>
+  <div><%= workout.description %></div>
+</section>
+  
+<br><br><h2>Add Exercise</h2>
+<form id="add-exercise-form" method="POST"
+  action="/workouts/<%= workout._id %>/exercise">
+  <label>Exerecise Name:</label>
+  <input type="text" name="content"></text>
+  <label>Sets:</label>
+  <select name="sets">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5" >5</option>
+  </select>
+  <label>Reps:</label>
+  <select name="reps">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+  <input type="submit" value="Add Exercise">
+</form>
+
+<p>Exercises: </p>
+<% if (workout.exercise.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Exercise</th>
+        <th>Reps</th>
+        <th>Sets</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% workout.exercise.forEach(function(e) { %>
+        <tr>
+          <td><%= e.content %></td>
+          <td><%= e.sets %></td>
+          <td><%= e.reps %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>Empty</h5>
+<% } %>
+<%- include('../partials/footer') %>
