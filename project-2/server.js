@@ -3,9 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require("express-session");
+var passport = require("passport");
 var methodOverride = require('method-override');
-require('./config/database');
+
 require('dotenv').config();
+require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
@@ -22,6 +25,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+// Method-Override
+app.use(methodOverride("_method"));
+// OAuth Middleware
 app.use(
   session({
     secret: process.env.SECRET,
@@ -29,7 +36,8 @@ app.use(
     saveUninitialized: true,
   })
 );
-app.use(passport.initalize());
+// Passport Middleware
+app.use(passport.initialize());
 app.use(passport.session());
 
 // middleware to send res.locals.user into any view
@@ -44,7 +52,7 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/workouts', workoutsRouter);
 app.use('/', exerciseRouter);
-app.use("/users", usersRouter);
+// app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

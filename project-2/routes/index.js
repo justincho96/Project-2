@@ -1,9 +1,3 @@
-var express = require('express');
-var router = express.Router();
-
-
-module.exports = router;
-
 var express = require("express");
 var router = express.Router();
 var passport = require("passport");
@@ -15,7 +9,6 @@ const isLoggedIn = require("../config/auth");
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Workout Tracker' });
 });
-
 
 router.get("/private", isLoggedIn, function (req, res) {
   res.render("private", { title: "Private Page" });
