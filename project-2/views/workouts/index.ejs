@@ -12,15 +12,19 @@
       </tr>
     </thead>
     <tbody>
-      <% workouts.forEach(w=> { %>
+      <% workouts.forEach(w => { %>
         <tr>
             <td><%= w.workoutName %></td>
             <td><%= w.description %></td>
-            <td action="/workouts/<%= w.id %>?_method=DELETE"
+            <td>
+            <form action="/workouts/<%= w.id %>?_method=DELETE"
                 class="delete-form" method="POST">
                 <button type="submit">Delete</button>
+            </form>
+        </td>
+            <td>
+                <a href="/workouts/<%= w._id %>">View/Edit</a>
             </td>
-            <td><a href="/workouts/<%= w._id %>">View/Edit</a></td>
         </tr>                        
     <% }) %>       
     </tbody>

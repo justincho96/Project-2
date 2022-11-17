@@ -40,7 +40,7 @@ function show(req, res) {
   }
 
   function deleteWorkout(req, res) {
-    Workout.deleteStuff(req.params.id);
+    Workout.deleteOne(req.params.id);
     res.redirect('/workouts');
   }
  

@@ -1,5 +1,9 @@
 const mongoose = require ('mongoose');
-const workouts = require('../controllers/workouts');
+var workouts = require('../controllers/workouts');
+
+module.exports = {
+    deleteOne,
+}
 
 const Schema = mongoose.Schema;
 
@@ -18,12 +22,8 @@ const workoutSchema = new Schema({
 
 module.exports = mongoose.model('Workout', workoutSchema);
 
-module.exports = {
-    deleteStuff,
-}
-
-function deleteStuff(id) {
-id = parseInt(id);
-const idx = workouts.findIndex(workout => workout.id === id);
+function deleteOne(id) {
+id = parseInt(id)
+const idx = workouts.findIndex((workout) => workout.id === id);
 workouts.splice(idx, 1);
 }

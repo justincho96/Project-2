@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require('method-override');
 require('./config/database');
+require('dotenv').config();
+require('./config/passport');
 
 var indexRouter = require('./routes/index');
 var workoutsRouter = require('./routes/workouts');
@@ -20,12 +22,29 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+app.use(passport.initalize());
+app.use(passport.session());
+
+// middleware to send res.locals.user into any view
+app.use(function (req, res, next) {
+  res.locals.user = req.user;
+  next();
+});
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/workouts', workoutsRouter);
 app.use('/', exerciseRouter);
+app.use("/users", usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
