@@ -2,7 +2,7 @@
 
 - Planning your workout made simple and easy! Don't stress over planning a new workout every time. Instead just create a profile and save your workouts for easy readily available access to your workouts anytime!
 
-#Wireframes
+# Wireframes
 
 ![Landing Page Wireframe](img/Landing%20Page.jpg)
 
@@ -14,11 +14,15 @@
 Trello:
 https://trello.com/b/2aUFyfVG/project-2
 
-## Pseudocode
-```
-- set routes
-- create auth for user to log in and create a profile
-- create lists that can be edited and saved
--create lists that can be interacted with (i.e. add checkboxes)
+Github:
+https://github.com/justincho96/Project-2.git
 
-```
+## Technologies
+- HTML, JS, CSS
+- Express
+- Node
+- MongoDB
+
+## Next Steps
+- Add social factor where users can browse other users' profiles.
+- Add more styliing to make a more aesthetically pleasing user experience.
