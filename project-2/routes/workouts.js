@@ -9,9 +9,9 @@ router.get('/new', isLoggedIn, workoutsCtrl.new);
 //post
 router.post('/', isLoggedIn, workoutsCtrl.create);
 
-router.get('/', workoutsCtrl.index);
+router.get('/', isLoggedIn, workoutsCtrl.index);
 
-router.get('/:id', workoutsCtrl.show);
+router.get('/:id', isLoggedIn, workoutsCtrl.show);
 
 router.delete('/:id', workoutsCtrl.delete);
 
