@@ -6,20 +6,19 @@
   </head>
   <body>
     <nav>
-      Login
-    </nav>
+      <a href='/' <%- title === 'Home' ? 'class="active"' : '' %>>Home</a>
+      <% if (user) { %>
+      <a href='/workouts/new' <%- title === 'New Workout' ? 'class="active"' : '' %>>New Workout</a>
+      <a href='/workouts' <%- title === 'My Workouts' ? 'class="active"' : '' %>>My Workouts</a>
+      <a href="/logout">LOG OUT</a>
+      <% } else { %>
+          <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+        <% } %>
+  </nav>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %>! Your perfect workout starts here!</p>
     <a href="/workouts/new">New Workout</a>
     <a href="/workouts/">My Workouts</a>
-    <ul>
-      <li><a href="/">Home</a></li>
-      <% if (user) { %>
-        <li><a href="/private">Private Page</a></li>
-        <li><a href="/logout">Log Out</a></li>
-        <% } else { %>
-          <li><a href="/auth/google">Log In</a></li>
-          <% } %>
-    </ul>
+   
   </body>
 </html>

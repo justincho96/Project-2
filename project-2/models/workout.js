@@ -18,6 +18,7 @@ const workoutSchema = new Schema({
   description: String,
   workoutName: String,
   exercise: [exerciseSchema],
+
 });
 
 module.exports = mongoose.model('Workout', workoutSchema);
